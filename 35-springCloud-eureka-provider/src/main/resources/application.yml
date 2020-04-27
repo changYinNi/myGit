@@ -1,0 +1,32 @@
+spring: 
+  application:
+    name: eureka-provider
+  security:         
+        user: 
+            name: admin
+            password: 123456
+    
+server: 
+  port: 8082
+  
+eureka: 
+  client:
+    serviceUrl: 
+     defaultZone: http://admin:123456@eureka2:8762/eureka/,http://admin:123456@eureka1:8761/eureka/
+     
+# 启用shutdown
+management: 
+    endpoints:
+        web:
+          exposure:
+            include:
+            - shutdown
+            - info
+            - health
+    endpoint: 
+       shutdown: 
+          enabled: true
+          
+
+     
+      
